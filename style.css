@@ -1,86 +1,210 @@
+/* Stili Generali e Reset */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #eef2f5; /* Sfondo chiaro e moderno */
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Allinea in alto per scrollabilità su mobile */
     min-height: 100vh;
     margin: 0;
+    padding: 20px; /* Padding generale per non attaccare ai bordi */
+    box-sizing: border-box; /* Include padding nel calcolo della larghezza */
 }
 
 .container {
     background-color: #ffffff;
     padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px; /* Angoli più arrotondati */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Ombra più pronunciata e morbida */
     text-align: center;
-    width: 90%;
-    max-width: 500px;
+    width: 100%; /* Larghezza piena su mobile */
+    max-width: 600px; /* Larghezza massima su desktop */
+    margin-top: 20px; /* Margine superiore per distaccarsi */
 }
 
-h1 {
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.input-section {
+h1, h2, h3 {
+    color: #2c3e50; /* Colore scuro per i titoli */
     margin-bottom: 25px;
+    font-weight: 600; /* Leggermente più spesso */
 }
 
-.input-section label {
+h2 {
+    margin-top: 40px; /* Spazio tra le sezioni */
+    border-top: 1px solid #eee; /* Separatore visivo */
+    padding-top: 30px;
+}
+
+/* Stili per Input e Bottoni */
+.input-section, .route-input-section {
+    display: flex;
+    flex-direction: column; /* Elementi in colonna per mobile */
+    gap: 15px; /* Spazio tra gli elementi */
+    margin-bottom: 30px;
+    align-items: center; /* Centra gli elementi */
+}
+
+label {
     display: block;
-    margin-bottom: 10px;
-    font-size: 1.1em;
-    color: #555;
-}
-
-.input-section input[type="text"] {
-    width: calc(100% - 22px);
-    padding: 10px;
-    margin-right: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    margin-bottom: 5px;
     font-size: 1em;
-    box-sizing: border-box; /* Include padding in width */
+    color: #555;
+    text-align: left; /* Allinea a sinistra il testo della label */
+    width: 100%; /* Occupa tutta la larghezza disponibile */
 }
 
-.input-section button {
-    padding: 10px 20px;
-    background-color: #007bff;
+input[type="text"] {
+    width: 100%; /* Larghezza piena */
+    padding: 12px 15px;
+    border: 1px solid #dde3ed; /* Bordo più sottile e chiaro */
+    border-radius: 8px; /* Angoli arrotondati */
+    font-size: 1.05em;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2); /* Ombra luminosa al focus */
+}
+
+button {
+    padding: 12px 25px;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px; /* Angoli arrotondati */
     cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s ease;
-    margin-top: 10px; /* Add some space above the button */
+    font-size: 1.05em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%; /* Larghezza piena su mobile */
+    max-width: 250px; /* Larghezza massima su desktop per i bottoni */
 }
 
-.input-section button:hover {
+#get-weather-btn {
+    background-color: #007bff; /* Blu primario */
+}
+
+#get-weather-btn:hover {
     background-color: #0056b3;
+    transform: translateY(-2px); /* Effetto hover leggero */
 }
 
+#get-route-weather-btn {
+    background-color: #28a745; /* Verde per il percorso */
+}
+
+#get-route-weather-btn:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+/* Sezione Risultati Meteo */
 .weather-results {
     margin-top: 20px;
-    padding: 15px;
+    padding: 20px;
     border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    background-color: #f9f9f9;
+    border-radius: 10px;
+    background-color: #f8fafd; /* Sfondo leggermente colorato */
     text-align: left;
-    min-height: 100px; /* Ensure some height even if empty */
+    min-height: 100px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05); /* Ombra interna delicata */
 }
 
 .weather-results p {
     margin: 8px 0;
     color: #444;
+    line-height: 1.6;
 }
 
 .weather-results h2 {
     color: #007bff;
+    margin-top: 0;
     margin-bottom: 15px;
+    font-size: 1.6em;
+}
+
+.weather-results h3 {
+    color: #34495e;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.3em;
 }
 
 .error {
     color: #dc3545;
     font-weight: bold;
+    background-color: #ffebeba6;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Stili per la Mappa */
+#map {
+    height: 400px; /* Altezza leggermente ridotta per mobile */
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15); /* Ombra per la mappa */
+    background-color: #f0f0f0; /* Sfondo temporaneo mentre la mappa carica */
+}
+
+/* InfoWindow personalizzata per i marker meteo */
+.weather-info-box {
+    background-color: rgba(255, 255, 255, 0.95); /* Leggermente trasparente */
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    font-size: 0.9em;
+    color: #333;
+    max-width: 200px; /* Limita la larghezza */
+}
+.weather-info-box h4 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    color: #007bff;
+    font-size: 1.1em;
+}
+.weather-info-box p {
+    margin: 2px 0;
+    line-height: 1.4;
+}
+
+/* Media Queries per Desktop */
+@media (min-width: 768px) {
+    .input-section {
+        flex-direction: row; /* Elementi in riga su desktop */
+        justify-content: center;
+    }
+
+    .input-section label {
+        width: auto; /* La label non occupa tutta la larghezza */
+        margin-bottom: 0;
+        margin-right: 10px; /* Spazio tra label e input */
+    }
+
+    .input-section input[type="text"] {
+        width: 250px; /* Larghezza fissa per input su desktop */
+        margin-right: 15px; /* Spazio tra input e bottone */
+    }
+
+    .route-input-section {
+        flex-direction: row; /* Metti gli input del percorso su una riga */
+        flex-wrap: wrap; /* Permette il wrap se lo spazio è limitato */
+        justify-content: center;
+        gap: 15px 20px; /* Gap verticale e orizzontale */
+    }
+
+    .route-input-section input[type="text"] {
+        width: 200px; /* Larghezza fissa per input del percorso */
+    }
+
+    button {
+        width: auto; /* Lascia il bottone adattarsi al contenuto */
+        min-width: 180px; /* Larghezza minima per i bottoni */
+    }
+
+    #map {
+        height: 500px; /* Altezza maggiore su desktop */
+    }
 }
