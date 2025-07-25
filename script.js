@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const getRouteWeatherBtn = document.getElementById('get-route-weather-btn');
     const mapElement = document.getElementById('map');
 
-    const METEOSOURCE_API_KEY = '2xam02eqjgdv6ehg61mqvdxt46dgj8dmqqfuti10';
+    const METEOSOURCE_API_KEY = '7vq7myfi70sogc1lpra563srzbam89xe0upb95we';
     const Maps_API_KEY = 'AIzaSyDcTncbLroGBItEXYAyXU45j2rgisiYi_E'; // Inserita direttamente nello script HTML
 
     let map;
