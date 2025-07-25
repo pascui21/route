@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previsioni Meteo sul Percorso</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Aggiungi o modifica queste regole nel tuo style.css se preferisci */
+        #map {
+            height: 500px; /* Altezza della mappa */
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .route-input-section {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+        .route-input-section input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+        .route-input-section button {
+            padding: 10px 20px;
+            background-color: #28a745; /* Green button for route */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        .route-input-section button:hover {
+            background-color: #218838;
+        }
+        .weather-info-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            font-size: 0.9em;
+            color: #333;
+        }
+        .weather-info-box h4 {
+            margin-top: 0;
+            margin-bottom: 5px;
+            color: #007bff;
+        }
+        .weather-info-box p {
+            margin: 3px 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Previsioni Meteo sul Percorso</h1>
+
+        <div class="input-section">
+            <label for="city-input">Cerca meteo per città:</label>
+            <input type="text" id="city-input" placeholder="Es. Roma">
+            <button id="get-weather-btn">Ottieni Previsioni Città</button>
+        </div>
+        <div id="weather-results" class="weather-results">
+            </div>
+
+        ---
+
+        <h2>Meteo lungo il Percorso</h2>
+        <div class="route-input-section">
+            <label for="start-point">Punto di partenza:</label>
+            <input type="text" id="start-point" placeholder="Es. Roma">
+            <label for="end-point">Punto di arrivo:</label>
+            <input type="text" id="end-point" placeholder="Es. Milano">
+            <button id="get-route-weather-btn">Cerca Previsioni sul Percorso</button>
+        </div>
+
+        <div id="map"></div> </div>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcTncbLroGBItEXYAyXU45j2rgisiYi_E&libraries=places"></script>
+    <script src="script.js"></script>
+</body>
+</html>
